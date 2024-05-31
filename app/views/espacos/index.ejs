@@ -1,0 +1,25 @@
+<h1>Espaços</h1>
+
+<a href="/espacos/novo">Novo Espaço</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Capacidade</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% espacos.forEach(espaco => { %>
+      <tr>
+        <td><%= espaco.Nome %></td>
+        <td><%= espaco.Capacidade %></td>
+        <td>
+          <a href="/espacos/<%= espaco.ID %>/editar">Editar</a>
+          <a href="/espacos/<%= espaco.ID %>/excluir">Excluir</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
