@@ -17,7 +17,9 @@
         <td><%= espaco.Capacidade %></td>
         <td>
           <a href="/espacos/<%= espaco.ID %>/editar">Editar</a>
-          <a href="/espacos/<%= espaco.ID %>/excluir">Excluir</a>
+          <form action="/espacos/<%= espaco.ID %>?_method=DELETE" method="POST" style="display: inline;">
+            <button type="submit">Excluir</button>
+          </form>
         </td>
       </tr>
     <% }) %>

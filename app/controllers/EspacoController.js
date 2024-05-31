@@ -27,11 +27,31 @@ module.exports = {
     res.render('espacos/editar', { espaco });
   },
 
+  // async atualizar(req, res) {
+  //   const { id } = req.params;
+  //   const { Nome, Capacidade } = req.body;
+  //   try {
+  //     await Espaco.update({ Nome, Capacidade }, { where: { ID: id } });
+  //     res.redirect('/espacos');
+  //   } catch (error) {
+  //     console.error('Erro ao atualizar espaço:', error);
+  //     res.redirect(`/espacos/${id}/editar`);
+  //   }
+  // },
+
+
   async atualizar(req, res) {
     const { id } = req.params;
     const { Nome, Capacidade } = req.body;
+
     try {
-      await Espaco.update({ Nome, Capacidade }, { where: { ID: id } });
+      const espaco = await Espaco.findByPk(id); // Buscar o espaço pelo ID
+
+      if (!espaco) {
+        return res.status(404).send('Espaço não encontrado');
+      }
+
+      await espaco.update({ Nome, Capacidade }); // Atualizar os dados do espaço encontrado
       res.redirect('/espacos');
     } catch (error) {
       console.error('Erro ao atualizar espaço:', error);

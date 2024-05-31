@@ -1,0 +1,14 @@
+<h1>Editar Espaço</h1>
+
+<form action="/espacos/<%= espaco.ID %>?_method=PUT" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <div>
+    <label for="Nome">Nome:</label>
+    <input type="text" id="Nome" name="Nome" value="<%= espaco.Nome %>" required>
+  </div>
+  <div>
+    <label for="Capacidade">Capacidade:</label>
+    <input type="number" id="Capacidade" name="Capacidade" value="<%= espaco.Capacidade %>" required>
+  </div>
+  <button type="submit">Atualizar</button>
+</form>
