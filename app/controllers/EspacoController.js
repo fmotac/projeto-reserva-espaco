@@ -27,19 +27,6 @@ module.exports = {
     res.render('espacos/editar', { espaco });
   },
 
-  // async atualizar(req, res) {
-  //   const { id } = req.params;
-  //   const { Nome, Capacidade } = req.body;
-  //   try {
-  //     await Espaco.update({ Nome, Capacidade }, { where: { ID: id } });
-  //     res.redirect('/espacos');
-  //   } catch (error) {
-  //     console.error('Erro ao atualizar espaço:', error);
-  //     res.redirect(`/espacos/${id}/editar`);
-  //   }
-  // },
-
-
   async atualizar(req, res) {
     const { id } = req.params;
     const { Nome, Capacidade } = req.body;
